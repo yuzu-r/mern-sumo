@@ -4,21 +4,21 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {cities: []};
+    this.state = {locations: []};
   }
   async componentDidMount(){
-    const response = await fetch('/cities');
-    const cities = await response.json();
-    this.setState({cities: cities});
+    const response = await fetch('/locations');
+    const locations = await response.json();
+    this.setState({locations: locations});
   }
   render() {
     return (
       <div>
         <ul>
-          {this.state.cities.map(city => { 
-            return <li key={city.name}> 
-                      <b>{city.name}</b>:
-                      {city.honbasho}
+          {this.state.locations.map(location => { 
+            return <li key={location.city}> 
+                      <b>{location.city}</b>:
+                      {location.info}
                     </li>
           })}
         </ul>
