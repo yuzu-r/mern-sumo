@@ -7,7 +7,9 @@ import Location from './model/locations';
 const app = express();
 const router = express.Router();
 
-const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/learn-mern';
+var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017';
+mongoURI = mongoURI + '/learn-mern';
+console.log('mongo connection: ', mongoURI);
 mongoose.connect(mongoURI);
 
 // get reference to the client build directory
@@ -21,16 +23,6 @@ app.use(bodyParser.json());
 
 router.get('/', (req,res) => {
 	res.json({message: 'hi! this is root.'});
-});
-
-router.get('/cities',(req,res) => {
-	const cities = [
-		{name: 'Tokyo', honbasho: 'January, May, September'},
-		{name: 'Osaka', honbasho: 'March'},
-		{name: 'Nagoya', honbasho: 'July'},
-		{name: 'Fukuoka', honbasho: 'November'}
-	];
-	res.json(cities);
 });
 
 router.route('/locations')
