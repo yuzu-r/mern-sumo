@@ -1,0 +1,24 @@
+div.dayContainer {
+	border: 1px dotted black;
+	padding: 3px 0;
+	height: 3em;
+	margin: 3px 0;
+	overflow: hidden;
+}
+
+div.dayContainer.expanded {
+	border: 1px dotted black;
+	padding: 3px 0;
+	background-color: #eee;
+	margin: 3px 0;
+	height: 9em;
+}
+
+/*
+div .dayContainer .day{
+	position: relative;
+	height: 100%;
+	overflow: hidden;
+}
+
+	*/
